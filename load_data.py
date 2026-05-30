@@ -48,7 +48,7 @@ def create_schema(conn: sqlite3.Connection) -> None:
 
 def load_csv(conn: sqlite3.Connection, csv_path: str) -> None:
     """Read cell-count.csv (no header) and populate all three tables."""
-    df = pd.read_csv(csv_path, header=None, names=CSV_COLUMNS)
+    df = pd.read_csv(csv_path, header=0, names=CSV_COLUMNS)
 
     # Pulls patient information columns and drops duplicates.
     patients_df = (
